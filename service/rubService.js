@@ -34,23 +34,7 @@ class rubService{
         }
         // console.log(rub_to_usd)
         return(rub_to_usd)
-        
-        // console.log(day, month, year)
-        // return {day: day,
-        //         month: month,
-        //         year: year};
-        // // }
-        
-        // catch(error){
-        //   // console.error(error);
-        // }
-        //  .then(function (response) {
-        //     console.log(response)
-        //     return response.status
-        //  })
-        //   .catch(function (error) {
-        //     console.log(error)
-        //   })
+
     }
 }
 
