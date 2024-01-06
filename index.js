@@ -1,8 +1,6 @@
 require('dotenv').config()
-const pg = require('pg');
-const mysql = require('mysql');
+// const pg = require('pg');
 const express = require('express');
-const axios = require('axios');
 const router = require('./router/index')
 const errorMiddleware = require('./middlewares/error-middleware')
 
@@ -12,13 +10,14 @@ const errorMiddleware = require('./middlewares/error-middleware')
 //     user: 'root',
 //     password: "root",
 // })
-const client = new pg.Client({
-    host: "localhost",
-    port: 5432,
-    database: process.env.DB_NAME,
-    user: process.env.DB_USERNAME,
-    password: process.env.DB_PASSWORD,
-})
+
+// const client = new pg.Client({
+//     host: "localhost",
+//     port: 5432,
+//     database: process.env.DB_NAME,
+//     user: process.env.DB_USERNAME,
+//     password: process.env.DB_PASSWORD,
+// })
 
 
 const PORT = process.env.PORT || 5000;
