@@ -1,13 +1,20 @@
 require('dotenv').config()
 const pg = require('pg');
+const mysql = require('mysql');
 const express = require('express');
 const axios = require('axios');
 const router = require('./router/index')
 const errorMiddleware = require('./middlewares/error-middleware')
 
+
+// var connection = mysql.createConnection({
+//     host: "localhost",
+//     user: 'root',
+//     password: "root",
+// })
 const client = new pg.Client({
-    host: '127.0.0.1',
-    port: 5334,
+    host: "localhost",
+    port: 5432,
     database: process.env.DB_NAME,
     user: process.env.DB_USERNAME,
     password: process.env.DB_PASSWORD,
@@ -23,7 +30,7 @@ app.use(errorMiddleware);
 
 const start = async () => {
     try {
-        await client.connect()
+        // await client.connect()
         app.listen(PORT, () => console.log(`Server started on PORT = ${PORT}`))
     } catch (e) {
         console.log(e);
