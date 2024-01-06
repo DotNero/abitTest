@@ -2,12 +2,14 @@ module.exports = class answerDto {
     day;
     month;
     year;
-    rub; 
+    img;
+    rub_to_usd;
 
-    constructor(day, month, year, rub){
+    constructor(day, month, year,img, rub){
         this.day = day;
         this.month = month;
         this.year = year;
-        this.rub = rub;
+        this.img = img;
+        this.rub_to_usd = rub;
     }
 }

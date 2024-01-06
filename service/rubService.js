@@ -17,17 +17,24 @@ class rubService{
         else dd = day;
         if (month < 10) mm = '0' + month;
         else mm = month;
-        console.log(dd+ mm+ year)
+        // console.log(dd+ mm+ year)
 
         // var d = new Date(year, month, day)
         const response = await axios.get('https://www.cbr.ru/scripts/XML_daily.asp?date_req='+ dd +'/' + mm + '/' + year)
-        console.log(response)
         var parser = new DOMParser();
-        var xmlDoc = parser.parseFromString(response, 'text/xml');
-        var dollar = xmlDoc.querySelectorAll('#R01235');
-        const value = dollar.XMLSerializer()
+        var xmlDoc = parser.parseFromString(response.data, 'text/xml');
         
-        console.log(value)
+        var rub_to_usd; 
+        var valutes = xmlDoc.getElementsByTagName('Valute');
+        for (var i = 0; i < valutes.length; i++) {
+            if (valutes[i].getElementsByTagName('CharCode')[0].childNodes[0].nodeValue == 'USD') {
+                rub_to_usd = valutes[i].getElementsByTagName('Value')[0].childNodes[0].nodeValue;
+                break;
+            }
+        }
+        // console.log(rub_to_usd)
+        return(rub_to_usd)
+        
         // console.log(day, month, year)
         // return {day: day,
         //         month: month,
