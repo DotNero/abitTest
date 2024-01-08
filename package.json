@@ -14,7 +14,6 @@
   },
   "scripts": {
     "dev": "cross-env NODE_ENV=development nodemon  on index.js",
-    "start": "cross-env NODE_ENV=production node index.js",
-    "gen": "node utils/generateKeyPair.js"
+    "start": "cross-env NODE_ENV=production node index.js"
   }
 }

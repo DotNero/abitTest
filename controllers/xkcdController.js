@@ -5,7 +5,7 @@ const Answer = require('../dtos/answer-dto')
 const {js2xml} = require('xml-js')
 
 
-// const {validationResult} = require('express-validator');
+
 
 class xkcdController{
     async xkcdGetIDS(req,res,next){
